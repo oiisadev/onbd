@@ -238,6 +238,24 @@
     function nextSlide() {
       swiper.slideNext();
     }
+
+<!-- 백엔드에서 오는 응답을 출력할 요소 -->
+  <div id="response">Loading...</div>
+
+  <!-- JavaScript 코드 -->
+    // 백엔드 서버에서 데이터를 받아오는 코드
+    fetch('https://your-app-name.onrender.com/api/hello')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data.message);  // 콘솔에 메시지 출력
+        document.getElementById('response').textContent = data.message;  // 화면에 메시지 출력
+      })
+      .catch(error => {
+        console.error('Error fetching data from the backend:', error);
+      });
+    
   </script>
 </body>
 </html>
+
+
